@@ -1,0 +1,192 @@
+/* --- CONFIGURACIÓN STICKY FOOTER --- */
+html, body {
+    height: 100%; /* Asegura que ambos tomen la altura completa */
+}
+
+/* --- ESTILOS GENERALES Y LAYOUT --- */
+body {
+    background-color: #f4f6f9; /* Fondo gris muy claro profesional */
+}
+
+.navbar-brand {
+    
+    font-weight: bold;
+}
+
+/* --- ESTILOS DE TARJETAS (INDEX) --- */
+.card {
+    border-radius: 20px;
+    transition: transform 0.5   s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* --- ESTILOS ESPECÍFICOS DE LA/FT (casos.php) --- */
+.caso-card .card-header {
+    background-color: #07072e !important; 
+    border-color: #ffffff !important;
+}
+
+.alert-light {
+    color: #495057;
+    background-color: #e9ecef;
+}
+
+.feedback-area .list-group-item {
+    border-left: 5px solid #0d6efd; /* Borde izquierdo de color primario/info */
+    margin-top: 10px;
+}
+
+/* ========================================================= */
+/* --- ESTILOS ESPECÍFICOS DE GESTIÓN DE CAJA (caja.php) --- */
+/* ========================================================= */
+
+#juego-caja {
+    background-color: #ffffff; /* Fondo blanco para el contenedor del juego */
+    padding: 30px; 
+}
+
+/* Estilo para los inputs de cantidad en la tabla */
+.count-input {
+    text-align: center;
+    font-weight: bold;
+    max-width: 100px; /* Limitar el ancho de las cajas de cantidad */
+    margin: auto;
+    display: block; /* Centrar el input dentro de la celda */
+}
+
+/* Estilo para la columna de subtotal */
+#tabla-conteo .subtotal,
+#total-contado-display {
+    font-weight: bold;
+    text-align: right;
+    width: 150px; /* Ancho fijo para la columna de subtotales */
+}
+
+/* Estilos de las tarjetas de resumen (Fondo Fijo, Ventas, Esperado) */
+#juego-caja .card {
+    border-radius: 8px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    min-height: 140px;
+}
+
+/* Ajuste de color para la tarjeta Esperado */
+#juego-caja .card.bg-info {
+    background-color: #0dcaf0 !important;
+}
+
+/* Estilos para el área de resultado */
+#resultado-arqueo {
+    font-size: 1.1rem;
+    border: 2px solid;
+    animation: fadeIn 0.5s;
+}
+
+#resultado-arqueo.alert-success {
+    border-color: #198754;
+}
+#resultado-arqueo.alert-warning {
+    border-color: #ffc107;
+}
+#resultado-arqueo.alert-danger {
+    border-color: #dc3545;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ==================================================================== */
+/* --- ESTILOS ESPECÍFICOS DE BILLETES FALSOS (billetes.php) --- */
+/* ==================================================================== */
+
+#juego-billetes {
+    /* Estilos para el contenedor principal del juego de billetes */
+    background-color: #ffffff; 
+    border-radius: 10px;
+    padding: 40px;
+}
+
+#billete-contenedor {
+    /* Contenedor de la imagen. Es crucial que sea 'position: relative' */
+    position: relative; 
+    display: inline-block;
+    padding: 0; /* Asegura que la imagen ocupe todo el espacio del contenedor */
+}
+
+#billete-img {
+    /* La imagen del billete */
+    max-width: 100%; 
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    cursor: zoom-in;
+}
+
+.medida-btn {
+    /* Estilo del botón interactivo (los puntos de seguridad) */
+    width: 30px; 
+    height: 30px;
+    line-height: 1;
+    font-size: 14px;
+    opacity: 0.8;
+    cursor: pointer;
+    z-index: 10; /* Asegura que esté por encima de la imagen */
+    transition: transform 0.2s, opacity 0.2s;
+    /* Estilo inicial del punto */
+    background-color: rgba(255, 193, 7, 0.8); /* Amarillo semi-transparente */
+    border: 2px solid #ffc107;
+    color: #343a40;
+}
+.panel-seguridad {
+    background-color: #f8f9fa; /* Fondo ligeramente gris */
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #dee2e6;
+}
+
+.progreso-header {
+    background-color: var(--bs-warning); /* Dorado/Naranja fuerte */
+    color: white;
+    font-weight: 700;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+/* Estilo para cada ítem de feedback (más compacto y sin botón de cerrar) */
+.feedback-item {
+    padding: 10px 15px;
+    margin-top: 10px;
+    border-left: 5px solid var(--color-caja-verde); /* Verde para Correcto */
+    background-color: #e6f7e9; /* Fondo verde muy claro */
+    border-radius: 5px;
+    font-size: 0.9rem;
+}
+
+.feedback-item strong {
+    color: var(--color-caja-verde);
+}
+.medida-btn:hover {
+    transform: translate(-50%, -50%) scale(1.3);
+    opacity: 1;
+    box-shadow: 0 0 10px #ffc107;
+}
+
+/* Estilo para cuando la medida ha sido encontrada */
+.medida-btn.btn-success {
+    background-color: rgba(40, 167, 69, 0.9); /* Verde sólido */
+    border-color: #28a745;
+    color: white;
+}
+
+/* Estilo para los botones deshabilitados */
+.medida-btn:disabled {
+    cursor: default;
+    opacity: 1; /* Mantener visibilidad */
+    transform: translate(-50%, -50%) scale(1.1); /* Ligeramente más grande para resaltar que fue encontrado */
+}
